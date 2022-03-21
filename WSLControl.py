@@ -15,12 +15,13 @@ from pykeepass import PyKeePass
 #I keep the password stored in a keepass database, so just change this to your information or you can put the username and password directly in the script
 database = PyKeePass('database.kdbx', keyfile='key.key')
 entry = database.find_entries(title="Cisco Call Manager", first=True)
-ucHost = "usiptpvx01.hbfuller.com"
+ucHost = "hostname"
 ucAdmin = entry.username
 ucPswd = entry.password
 disable_warnings(InsecureRequestWarning)
 # If you're not disabling SSL verification, host should be the FQDN of the server rather than IP
  
+#I have the WSDL file linked to the current folder -> schema -> current -> AXLAPI.wsdl and you will need to download this from call manager, there should be a guide online. 	
 wsdl = './schema/current/AXLAPI.wsdl'
 location = 'https://{host}:8443/axl/'.format(host=ucHost)
 binding = "{http://www.cisco.com/AXLAPIService/}AXLAPIBinding"
